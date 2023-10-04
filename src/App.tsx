@@ -1,16 +1,25 @@
-import React from "react"
-import Header from "./components/Header"
-import Footer from "./components/Footer"
-import Note from "./components/Note"
+import React from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Note from "./components/Note";
+import notes from "./notes";
 
-function App(){
-  return(
-    <div>
-    <Header />
-    <Footer />
-    <Note />
-    </div>
-  )
+function createNewNote(noteItem:any){
+  return <Note
+  key={noteItem.key}
+  title={noteItem.title}
+  content={noteItem.content}
+  />
 }
 
-export default App
+function App() {
+  return (
+    <div>
+      <Header />
+       {notes.map(createNewNote)}
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
